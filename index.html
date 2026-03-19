@@ -130,6 +130,10 @@
     user-select: none;
   }
 
+  .eng.hidden {
+    display: none;
+  }
+
   hr.divider {
     border: none;
     border-top: 1px solid #c8b898;
@@ -170,7 +174,7 @@
 
   <div class="toggle-bar">
     <button class="toggle-btn" id="toggleBtn" onclick="togglePhonetics()">Hide Phonetics</button>
-    <span class="toggle-label" id="toggleLabel">Phonetics are currently visible</span>
+    <button class="toggle-btn" id="toggleEngBtn" onclick="toggleEnglish()">Hide English</button>
   </div>
 
   <div class="header">
@@ -1018,23 +1022,24 @@
 
 <script>
   var phonVisible = true;
+  var engVisible = true;
 
   function togglePhonetics() {
     phonVisible = !phonVisible;
-    var phons = document.querySelectorAll('.phon');
-    var btn = document.getElementById('toggleBtn');
-    var label = document.getElementById('toggleLabel');
-    phons.forEach(function(p) {
-      if (phonVisible) {
-        p.classList.remove('hidden');
-      } else {
-        p.classList.add('hidden');
-      }
+    document.querySelectorAll('.phon').forEach(function(p) {
+      phonVisible ? p.classList.remove('hidden') : p.classList.add('hidden');
     });
+    var btn = document.getElementById('toggleBtn');
     btn.textContent = phonVisible ? 'Hide Phonetics' : 'Show Phonetics';
-    label.textContent = phonVisible
-      ? 'Phonetics are currently visible'
-      : 'Phonetics are hidden — test yourself!';
+  }
+
+  function toggleEnglish() {
+    engVisible = !engVisible;
+    document.querySelectorAll('.eng').forEach(function(e) {
+      engVisible ? e.classList.remove('hidden') : e.classList.add('hidden');
+    });
+    var btn = document.getElementById('toggleEngBtn');
+    btn.textContent = engVisible ? 'Hide English' : 'Show English';
   }
 </script>
 </body>
