@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="bo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Aspiration of Mahāmudrā — Tibetan Script</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tibetan:wght@400;600&family=Gentium+Plus:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f5f0e8;
+    color: #1a1208;
+    font-family: 'Gentium Plus', Georgia, serif;
+    padding: 0 1rem 3rem;
+  }
+
+  .page { max-width: 680px; margin: 0 auto; }
+
+  .toggle-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f5f0e8;
+    border-bottom: 1px solid #c8b898;
+    padding: 0.7rem 0;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .toggle-btn {
+    background: #5c3d1e;
+    color: #f5f0e8;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 1.1rem;
+    font-family: 'Gentium Plus', Georgia, serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .toggle-btn:hover { background: #7a5430; }
+
+  .toggle-label {
+    font-size: 0.82rem;
+    color: #7a6040;
+    font-style: italic;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #b8a882;
+    padding-top: 1.5rem;
+  }
+  .header .title-tib {
+    font-family: 'Noto Serif Tibetan', serif;
+    font-size: 1.4rem;
+    line-height: 2.2;
+    color: #5c3d1e;
+    margin-bottom: 0.6rem;
+  }
+  .header .title-eng {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #5c3d1e;
+  }
+  .header .author {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7a6040;
+    margin-top: 0.5rem;
+  }
+
+  .namo {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-family: 'Noto Serif Tibetan', serif;
+    font-size: 1.1rem;
+    color: #7a6040;
+  }
+
+  .stanza { margin-bottom: 2.5rem; }
+
+  .line-block { margin-bottom: 0.9rem; }
+
+  .line {
+    display: flex;
+    gap: 1.5rem;
+    align-items: baseline;
+  }
+
+  .tib {
+    font-family: 'Noto Serif Tibetan', serif;
+    font-size: 1.45rem;
+    line-height: 2.1;
+    color: #1a1208;
+    flex: 1.2;
+    min-width: 0;
+  }
+
+  .eng {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #3d2e12;
+    font-style: italic;
+    flex: 1;
+    padding-top: 0.5rem;
+  }
+
+  .phon {
+    font-size: 0.78rem;
+    color: #8a6f45;
+    letter-spacing: 0.04em;
+    padding-left: 0.1rem;
+    transition: opacity 0.25s, max-height 0.25s;
+    max-height: 2rem;
+    overflow: hidden;
+  }
+
+  .phon.hidden {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid #c8b898;
+    margin: 2.2rem 0;
+  }
+
+  .section-note {
+    text-align: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9a8060;
+    margin-bottom: 1.5rem;
+  }
+
+  .colophon {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    color: #9a8060;
+  }
+
+  @media (max-width: 580px) {
+    .line { flex-direction: column; gap: 0.15rem; }
+    .eng { padding-top: 0; font-size: 0.82rem; }
+    .tib { font-size: 1.25rem; }
+  }
+
+  @media print {
+    .toggle-bar { display: none; }
+    .phon.hidden { display: none; }
+    body { background: white; padding: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="toggle-bar">
+    <button class="toggle-btn" id="toggleBtn" onclick="togglePhonetics()">Hide Phonetics</button>
+    <span class="toggle-label" id="toggleLabel">Phonetics are currently visible</span>
+  </div>
+
+  <div class="header">
+    <div class="title-tib">ཟབ་མོ་ཕྱག་རྒྱ་ཆེན་པོའི་སྨོན་ལམ།</div>
+    <div class="title-eng">The Aspiration of Mahāmudrā, the Definitive Meaning</div>
+    <div class="author">By the Third Karmapa, Rangjung Dorje</div>
+  </div>
+
+  <div class="namo">ན་མོ་གུ་རུ</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ལ་མ་རྣམས་དང་ཡི་དམ་དཀྱིལ་འཁོར་ལྷ།</div>
+        <div class="eng">Gurus and yidams, deities of the mandala,</div>
+      </div>
+      <div class="phon">LA MA NAM DANG YI DAM KYIL KHOR LHA</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཕྱོགས་བཅུ་དུས་གསུམ་རྒྱལ་བ་སྲས་དང་བཅས།</div>
+        <div class="eng">Buddhas and bodhisattvas of the three times and ten directions,</div>
+      </div>
+      <div class="phon">CHOK CHU DÜ SUM GYEL WA SÉ DANG CHÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བདག་ལ་བརྩེར་དགོངས་བདག་གི་སྨོན་ལམ་རྣམས།</div>
+        <div class="eng">Please think of me with love and grant your blessings.</div>
+      </div>
+      <div class="phon">DAK LA TSER GONG DAK GI MÖN LAM NAM</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཇི་བཞིན་འགྲུབ་པའི་མཐུན་རྐྱེན་ཇིན་བརླབས་མཛོད།</div>
+        <div class="eng">May this prayer be perfectly fulfilled.</div>
+      </div>
+      <div class="phon">JI SHIN DRUP PÉ TÜN GYUR JIN LAB DZÖ</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བདག་དང་མཐའ་ཡས་སེམས་ཅན་ཐམས་ཅད་ཀྱི།</div>
+        <div class="eng">Both my own and those of all sentient beings,</div>
+      </div>
+      <div class="phon">DAK DANG TA YÉ SEM CHEN TAM CHÉ KYI</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བསམ་སྤྱོད་རྣམ་དག་གངས་རིའི་ལས་སྐྱེས་པའི།</div>
+        <div class="eng">Springing from the snow mountain of pure thoughts and deeds,</div>
+      </div>
+      <div class="phon">SAM JOR NAM DAK GANG RI LÉ KYÉ PÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འཁོར་གསུམ་ཉོག་མེད་དགེ་ཚོགས་ཆུ་རྒྱུན་རྣམས།</div>
+        <div class="eng">May the stream of accumulated virtue, untainted by the three spheres,</div>
+      </div>
+      <div class="phon">KHOR SUM NYOK MÉ GÉ TSOK CHU GYÜN NAM</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">རྒྱལ་བ་སྐུ་བཞིའི་རྒྱ་མཚོར་འཇུག་གྱུར་ཅིག།</div>
+        <div class="eng">Flow into the ocean of the four kayas of the victorious ones.</div>
+      </div>
+      <div class="phon">GYEL WA KU SHI GYA TSOR JUK GYUR CHIK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཇི་སྲིད་དེ་མ་ཐོབ་པ་དེ་སྲིད་དུ།</div>
+        <div class="eng">Until this has come to pass,</div>
+      </div>
+      <div class="phon">JI SI DÉ MA TOP PA DÉ SI DU</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྐྱེ་དང་སྐྱེ་བ་ཚེ་རབས་ཀུན་ཏུ་ཡང་།</div>
+        <div class="eng">In all our future lives,</div>
+      </div>
+      <div class="phon">KYÉ DANG KYÉ WA TSÉ RAP KÜN TU YANG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྡིག་དང་སྡུག་བསྔལ་སྒྲ་ཡང་མི་གྲགས་ཤིང་།</div>
+        <div class="eng">May we not even hear the words "misdeeds" and "suffering."</div>
+      </div>
+      <div class="phon">DIK DANG DUK NGAL DRA YANG MI DRAK SHING</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བདེ་དགེའི་རྒྱ་མཚོའི་དཔལ་ལ་སྤྱོད་པར་ཤོག།</div>
+        <div class="eng">May we enjoy the glorious ocean of happiness and virtue.</div>
+      </div>
+      <div class="phon">DÉ GÉ GYA TSÖ PAL LA JÖ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">དལ་འབྱོར་མཆོག་ཐོབ་དད་རྩོན་ཤེས་རབ་ལྡན།</div>
+        <div class="eng">With the supreme freedoms and riches, with faith, diligence, and wisdom,</div>
+      </div>
+      <div class="phon">TEL JOR CHOK TOP DÉ TSÖN SHÉ RAP DEN</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བཤེས་གཉེན་བཟང་བསྟེན་དམ་པའི་བཅུད་ཐོབ་ནས།</div>
+        <div class="eng">May we rely on excellent teachers and receive their pith instructions.</div>
+      </div>
+      <div class="phon">SHÉ NYEN ZANG TEN DAM PÉ CHÜ TOP NÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཚུལ་བཞིན་སྒྲུབ་ལ་བར་ཆད་མ་མཆིས་པར།</div>
+        <div class="eng">Free from any obstacles in practicing them correctly,</div>
+      </div>
+      <div class="phon">TSÜL SHIN DRUP LA PAR CHÉ MA CHI PAR</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཚེ་རབས་ཀུན་ཏུ་དམ་ཆོས་སྤྱོད་པར་ཤོག།</div>
+        <div class="eng">May we practice the sacred Dharma in all our lives.</div>
+      </div>
+      <div class="phon">TSÉ RAP KÜN TU DAM CHÖ JÖ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">གཞུང་རིགས་ཐོས་པས་མི་ཤེས་སྒྲིབ་ལས་གྲོལ།</div>
+        <div class="eng">Studying scripture and reasoning lifts the veil of ignorance.</div>
+      </div>
+      <div class="phon">LUNG RIK TÖ PÉ MI SHÉ DRIP LÉ DRÖL</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མན་ངག་བསམ་པས་ཐེ་ཚོམ་མུན་ནག་འཇོམས།</div>
+        <div class="eng">Pondering the key instructions dispels the darkness of doubt.</div>
+      </div>
+      <div class="phon">MEN NGAK SAM PÉ TÉ TSOM MÜN NAK CHOM</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྒོམ་བྱུང་འོད་ཀྱིས་གནས་ལུགས་ཇི་བཞིན་གསལ།</div>
+        <div class="eng">The light of meditation illuminates the true nature of things.</div>
+      </div>
+      <div class="phon">GOM JUNG Ö KYI NÉ LUK JI SHIN SEL</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཤེས་རབ་གསུམ་གྱི་སྣང་བ་རྒྱས་པར་ཤོག།</div>
+        <div class="eng">May the radiance of the three forms of wisdom expand.</div>
+      </div>
+      <div class="phon">SHÉ RAP SUM GYI NANG WA GYÉ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-note">The Ground</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">རྟག་ཆད་མཐའ་བྲལ་གཞིའི་བདེན་གཉིས་ཤེས།</div>
+        <div class="eng">Through the nature of the ground, the two truths, beyond the extremes of permanence and nothingness,</div>
+      </div>
+      <div class="phon">TAK CHÉ TA DREL DEN NYI SHI YI DÖN</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འཕྲོ་སྐུར་མཐའ་བྲལ་ཚོགས་གཉིས་ལམ་མཆོག་གིས།</div>
+        <div class="eng">And through the supreme path of the two accumulations, free from the limitations of exaggeration and denial,</div>
+      </div>
+      <div class="phon">DRO KUR TA DREL TSOK NYI LAM CHOK GI</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྲིད་ཞིའི་མཐའ་བྲལ་དོན་གཉིས་འབྲས་ཐོབ་པའི།</div>
+        <div class="eng">We attain the result of the two-fold benefit, beyond the confines of existence and peace.</div>
+      </div>
+      <div class="phon">SI SHI TA DREL DÖN NYI DRÉ TOP PÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འཁྲུལ་འཆུག་མེད་པའི་ཆོས་དང་འཕྲད་པར་ཤོག།</div>
+        <div class="eng">May we meet with the unerring, unmistaken Dharma.</div>
+      </div>
+      <div class="phon">KÖL CHUK MÉ PÉ CHÖ DANG TRÉ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-note">Purification through Mahāmudrā</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྦྱང་གཞི་སེམས་ཉིད་གསལ་སྟོང་ཟུང་འཇུག་ལ།</div>
+        <div class="eng">The basis of purification is the mind itself, the union of clarity and emptiness.</div>
+      </div>
+      <div class="phon">JANG SHI SEM NYI SEL TONG SUNG JUK LA</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྦྱོང་བྱེད་ཕྱག་ཆེན་རྡོ་རྗེའི་རྣལ་འབྱོར་ཆེས།</div>
+        <div class="eng">What purifies is the supreme vajra yoga of Mahāmudrā.</div>
+      </div>
+      <div class="phon">JONG JÉ CHAK CHEN DOR JÉ NAL JOR CHÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྦྱང་བྱ་གློ་བུར་འཁྲུལ་པའི་དྲི་མ་རྣམས།</div>
+        <div class="eng">And what it purifies are the temporary stains of confusion.</div>
+      </div>
+      <div class="phon">JANG CHA LO PUR TRÜL PÉ DRI MA NAM</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྦྱངས་འབྲས་དྲི་བྲལ་ཆོས་སྐུ་མངོན་གྱུར་ཤོག།</div>
+        <div class="eng">May the pristine dharmakāya, the result of purification, become manifest.</div>
+      </div>
+      <div class="phon">JANG DRÉ DRI DREL CHÖ KU NGÖN GYUR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-note">View, Meditation, and Conduct</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">གཞི་ལ་འདོད་དོགས་སྤྱོད་པ་ལྟ་བའི་གདེངས།</div>
+        <div class="eng">Confidence in the view cuts through assumptions about the ground.</div>
+      </div>
+      <div class="phon">SHI LA DRO DOK CHÖ PA TA WÉ DENG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">དེ་ལ་མ་ཡེངས་སྐྱོང་བ་སྒོམ་པའི་གནད།</div>
+        <div class="eng">The key point of meditation is to maintain the view without distraction.</div>
+      </div>
+      <div class="phon">DÉ LA MA YENG KYONG WA GOM PÉ NÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྒོམ་དོན་ཀུན་ལ་རྩལ་སྦྱོང་སྤྱོད་པའི་མཆོག།</div>
+        <div class="eng">The supreme conduct is to master all the points of meditation.</div>
+      </div>
+      <div class="phon">GOM DÖN KÜN LA TSEL JONG JÖ PÉ CHOK</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ལྟ་སྒོམ་སྤྱོད་པའི་གདེངས་དང་ལྡན་པར་ཤོག།</div>
+        <div class="eng">May we gain confidence in the view, meditation, and conduct.</div>
+      </div>
+      <div class="phon">TA GOM JÖ PÉ DENG DANG DEN PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-note">The Nature of Mind</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཆོས་རྣམས་ཐམས་ཅད་སེམས་ཀྱི་རྣམ་འཕྲུལ་ཏེ།</div>
+        <div class="eng">All phenomena are projections of the mind.</div>
+      </div>
+      <div class="phon">CHÖ NAM TAM CHÉ SEM KYI NAM TRÜL TÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སེམས་ནི་སེམས་མེད་སེམས་ཀྱི་ངོ་བོ་སྟོང་།</div>
+        <div class="eng">Yet there is no mind; it is empty of any essence.</div>
+      </div>
+      <div class="phon">SEM NI SEM MÉ SEM KYI NGO WÖ TONG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྟོང་ཞིང་མ་འགགས་ཅིར་ཡང་སྣང་བ་ཏེ།</div>
+        <div class="eng">Empty yet unobstructed, it can manifest as anything.</div>
+      </div>
+      <div class="phon">TONG SHING MA GAK CHIR YANG NANG WA TÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ལེགས་པར་རྟག་ནས་གཞི་རྩ་གཅོད་པར་ཤོག།</div>
+        <div class="eng">Investigating it with care, may we cut through to the ground.</div>
+      </div>
+      <div class="phon">LEK PAR TAK NÉ SHI TSA CHÖ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཡོད་མ་ཉོང་བའི་རང་སྣང་ཡུལ་དུ་འཁྲུལ།</div>
+        <div class="eng">Non-existent self-appearances are mistaken for objects.</div>
+      </div>
+      <div class="phon">YÖ MA NYONG WÉ RANG NANG YÜL DU TRÜL</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མ་རིག་དབང་གིས་རང་རིག་བདག་ཏུ་འཁྲུལ།</div>
+        <div class="eng">Due to ignorance, self-awareness is mistaken for a self.</div>
+      </div>
+      <div class="phon">MA RIG WANG GI RANG RIK DAK TU TRÜL</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">གཉིས་འཛིན་དབང་གིས་སྲིད་པའི་ཀློང་དུ་འཁྱམས།</div>
+        <div class="eng">We wander through saṃsāra under the sway of dualistic fixation.</div>
+      </div>
+      <div class="phon">NYI DZIN WANG GI SI PÉ LONG DU KHYAM</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མ་རིག་འཁྲུལ་པའི་རྩད་དར་གཅོད་པར་ཤོག།</div>
+        <div class="eng">May we completely cut the root of ignorance and confusion.</div>
+      </div>
+      <div class="phon">MA RIK TRÜL PÉ TSÉ DAR CHÖ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཡོད་པ་མ་ཡིན་རྒྱལ་བས་ཀྱང་མ་མཐོང་།</div>
+        <div class="eng">Mind does not exist, for even the buddhas do not see it.</div>
+      </div>
+      <div class="phon">YÖ PA MA YIN GYEL WÉ KYANG MA SIK</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མེད་པ་མ་ཡིན་འཁོར་འདས་ཀུན་གྱི་གཞི།</div>
+        <div class="eng">Yet neither does it not exist; it is the basis of all saṃsāra and nirvāṇa.</div>
+      </div>
+      <div class="phon">MÉ PA MA YIN KHOR DÉ KÜN GYI SHI</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འགལ་དུ་མ་ཡིན་ཟུང་འཇུག་དབུ་མའི་ལམ།</div>
+        <div class="eng">This is not a contradiction, but a unity, the middle way.</div>
+      </div>
+      <div class="phon">GEL DU MA YIN SUNG JUK U MÉ LAM</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མཐའ་བྲལ་སེམས་ཀྱི་ཆོས་ཉིད་རྟོགས་པར་ཤོག།</div>
+        <div class="eng">May we realize the true nature of our minds, free from extremes.</div>
+      </div>
+      <div class="phon">TA DREL SEM KYI CHÖ NYI TOK PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འདི་ཡིན་ཞེས་པ་གང་གིས་མཚོན་པ་མེད།</div>
+        <div class="eng">It cannot be characterized by saying what it is.</div>
+      </div>
+      <div class="phon">DI YIN SHÉ PA GANG GI TSÖN PA MÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འདི་མིན་ཞེས་བྱ་གང་གིས་བཀག་པ་མེད།</div>
+        <div class="eng">It cannot be refuted by saying what it is not.</div>
+      </div>
+      <div class="phon">DI MIN SHÉ CHA GANG GI KAK PA MÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བློ་ལས་འདས་པའི་ཆོས་ཉིད་འདུས་མ་བྱས།</div>
+        <div class="eng">Unconditioned reality transcends conceptual mind.</div>
+      </div>
+      <div class="phon">LO LÉ DÉ PÉ CHÖ NYI DÜ MA CHÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཡང་དག་དོན་གྱི་མཐའ་ནི་ངེས་པར་ཤོག།</div>
+        <div class="eng">May we come to understand the extent of the genuine truth.</div>
+      </div>
+      <div class="phon">YANG DAG DÖN GYI TA NI NGÉ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འདི་ཉིད་མ་རྟོགས་འཁོར་བའི་རྒྱ་མཚོར་འཁོར།</div>
+        <div class="eng">When not realized, we circle through the ocean of saṃsāra.</div>
+      </div>
+      <div class="phon">DI NYI MA TOK KHOR WÉ GYA TSOR KHOR</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འདི་ཉིད་རྟོགས་ན་སངས་རྒྱས་གཞན་ན་མེད།</div>
+        <div class="eng">When it is, buddhahood is found nowhere else.</div>
+      </div>
+      <div class="phon">DI NYI TOK NA SANG GYÉ SHEN NA MÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཐམས་ཅད་འདི་ཡིན་འདི་མིན་གང་ཡང་མེད།</div>
+        <div class="eng">Everything is this. There is nothing at all that is not.</div>
+      </div>
+      <div class="phon">TAM CHÉ DI YIN DI MIN GANG YANG MÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཆོས་ཉིད་ཀུན་གཞིའི་གསང་བ་རིག་པར་ཤོག།</div>
+        <div class="eng">May we come to know this reality, the secret of the all-ground.</div>
+      </div>
+      <div class="phon">CHÖ NYI KÜN SHI TSANG NI RIK PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྣང་ཡང་སེམས་ལ་སྟོང་ཡང་སེམས་ཡིན་ཏེ།</div>
+        <div class="eng">Appearances are mind. Emptiness is mind.</div>
+      </div>
+      <div class="phon">NANG YANG SEM LA TONG YANG SEM YIN TÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">རྟོགས་ཀྱང་སེམས་ལ་འཁྲུལ་ཡང་རང་གི་སེམས།</div>
+        <div class="eng">Realization is mind. Confusion is mind.</div>
+      </div>
+      <div class="phon">TOK KYANG SEM LA TRÜL YANG RANG GI SEM</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྐྱེ་ཀྱང་སེམས་ལ་འགག་ཀྱང་སེམས་ཡིན་པས།</div>
+        <div class="eng">Arising is mind. Cessation is mind.</div>
+      </div>
+      <div class="phon">KYÉ KYANG SEM LA GAK KYANG SEM YIN PÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འདོར་དོགས་ཐམས་ཅད་སེམས་ལ་གཅོད་པར་ཤོག།</div>
+        <div class="eng">May we cut through all our assumptions about the mind.</div>
+      </div>
+      <div class="phon">DRO DOK TAM CHÉ SEM LA CHÖ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-note">Meditation Practice</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བློས་བྱས་རྩོལ་བའི་སྒོམ་གྱིས་མ་བསླད་ཅིང་།</div>
+        <div class="eng">Untainted by forced, conceptual meditation,</div>
+      </div>
+      <div class="phon">LÖ CHÉ TSÖL WÉ GOM GYI MA LÉ CHING</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཐ་མལ་དུ་གཞི་རླུང་གིས་མ་བསྐྱོད་པར།</div>
+        <div class="eng">Unmoved by the winds of mundane distractions,</div>
+      </div>
+      <div class="phon">TA MEL DU DZI LUNG GI MA KYÖ PAR</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མ་བཅོས་ཉུག་མ་རང་བབ་འཇོག་ཤེས་པའི།</div>
+        <div class="eng">Knowing how to rest naturally and uncontrived in our basic nature,</div>
+      </div>
+      <div class="phon">MA CHÖ NYUK MA RANG BAP JOK SHÉ PÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སེམས་དོན་ཉམས་ལེན་མཁས་ཤིང་སྐྱོང་བར་ཤོག།</div>
+        <div class="eng">May we master maintaining the experience of the nature of mind.</div>
+      </div>
+      <div class="phon">SEM DÖN NYAM LEN KHÉ SHING KYONG WAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">རྒྱ་རགས་རྟོག་པའི་རྦ་རླབས་རང་སར་ཞི།</div>
+        <div class="eng">With the waves of coarse and subtle thoughts subsiding on their own,</div>
+      </div>
+      <div class="phon">TRA RAK TOK PÉ BA LAP RANG SAR SHI</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">གཡོ་མེད་སེམས་ཀྱི་ཆུ་བོ་ངང་གིས་གནས།</div>
+        <div class="eng">And the calm waters of the mind resting naturally,</div>
+      </div>
+      <div class="phon">YÖ MÉ SEM KYI CHU WO NGANG GI NÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བྱིང་མུག་ཉོག་པའི་དྲི་མ་དང་བྲལ་བའི།</div>
+        <div class="eng">May we be free from the problems of dullness and lethargy,</div>
+      </div>
+      <div class="phon">JING MUG NYOK PÉ DRI MA DANG DREL WÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཞི་གནས་རྒྱ་མཚོ་མི་གཡོ་བརྟན་པར་ཤོག།</div>
+        <div class="eng">And stabilize the still ocean of calm abiding.</div>
+      </div>
+      <div class="phon">SHI NÉ GYA TSO MI YO TEN PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">གདར་མེད་སེམས་ལ་ཡང་ཡང་བལྟས་པའི་ཚེ།</div>
+        <div class="eng">Looking again and again at the mind that cannot be seen,</div>
+      </div>
+      <div class="phon">DAR MÉ SEM LA YANG YANG TÉ PÉ TSÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མཐོང་མེད་དོན་ནི་ཇི་བཞིན་ལྷག་གེར་མཐོང་།</div>
+        <div class="eng">What cannot be seen is seen clearly just as it is.</div>
+      </div>
+      <div class="phon">TONG MÉ DÖN NI JI SHIN LHAK KER TONG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཡིན་མིན་དོན་ལ་ཐེ་ཚོམ་གཅོད་པ་ཉིད།</div>
+        <div class="eng">Cutting through doubts about what it is and what it is not,</div>
+      </div>
+      <div class="phon">YIN MIN DÖN LA TÉ TSOM CHÖ PA NYI</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འཁྲུལ་མེད་རང་ངོ་རང་གིས་ཤེས་པར་ཤོག།</div>
+        <div class="eng">May we come to know our own nature without confusion.</div>
+      </div>
+      <div class="phon">TRÜL MÉ RANG NGO RANG GI SHÉ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཡུལ་ལ་བལྟས་པས་ཡུལ་མེད་སེམས་སུ་མཐོང་།</div>
+        <div class="eng">Looking at objects, there are none; they are seen to be mind.</div>
+      </div>
+      <div class="phon">YÜL LA TÉ PÉ YÜL MÉ SEM SU TONG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སེམས་ལ་བལྟས་པས་སེམས་མེད་ངོ་བོ་སྟོང་།</div>
+        <div class="eng">Looking at mind, there is none; it is empty of any essence.</div>
+      </div>
+      <div class="phon">SEM LA TÉ PÉ SEM MÉ NGO WÖ TONG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">གཉིས་ལ་བལྟས་པས་གཉིས་འཛིན་རང་སར་གྲོལ།</div>
+        <div class="eng">Looking at both, dualistic fixation is freed on its own.</div>
+      </div>
+      <div class="phon">NYI LA TÉ PÉ NYI DZIN RANG SAR DRÖL</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འོད་གསལ་སེམས་ཀྱི་གནས་ལུགས་རྟོགས་པར་ཤོག།</div>
+        <div class="eng">May we realize luminosity, the true nature of mind.</div>
+      </div>
+      <div class="phon">Ö SEL SEM KYI NÉ LUK TOK PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-note">The Great Seal, Middle Way, and Great Perfection</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཡིད་བྱེད་བྲལ་བ་འདི་ནི་ཕྱག་རྒྱ་ཆེ།</div>
+        <div class="eng">Beyond mental activity, it is the Great Seal.</div>
+      </div>
+      <div class="phon">YI CHÉ DREL WA DI NI CHAK GYA CHÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མཐའ་དང་བྲལ་བ་དབུ་མ་ཆེན་པོ་ཡིན།</div>
+        <div class="eng">Free from extremes, it is the Great Middle Way.</div>
+      </div>
+      <div class="phon">TA DANG DREL WA U MA CHEN PO YIN</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འདི་ནི་ཀུན་འདུས་རྫོགས་ཆེན་ཞེས་ཀྱང་བྱ།</div>
+        <div class="eng">All encompassing, it is the Great Perfection.</div>
+      </div>
+      <div class="phon">DI NI KÜN DÜ DZOK CHEN SHÉ KYANG CHA</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">གཅིག་ཤེས་ཀུན་དོན་རྟོགས་པའི་གདེངས་ཐོབ་ཤོག།</div>
+        <div class="eng">May we gain confidence in realizing all through knowing this one point.</div>
+      </div>
+      <div class="phon">CHIK SHÉ KÜN DÖN TOK PÉ DENG TOP SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཞེན་པ་མེད་པའི་བདེ་ཆེན་རྒྱུན་ཆད་མེད།</div>
+        <div class="eng">Unceasing great bliss, free of fixation,</div>
+      </div>
+      <div class="phon">SHEN PA MÉ PÉ DÉ CHEN GYÜN CHÉ MÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མཚན་འཛིན་མེད་པའི་འོད་གསལ་སྒྲིབ་གཡོགས་བྲལ།</div>
+        <div class="eng">Unobscured luminosity, beyond clinging to concepts,</div>
+      </div>
+      <div class="phon">TSEN DZIN MÉ PÉ Ö SEL DRIP YOK DREL</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བློ་ལས་འདས་པའི་མི་རྟོག་ལྷུན་གྱིས་གྲུབ།</div>
+        <div class="eng">Spontaneously present nonthought, transcending mind –</div>
+      </div>
+      <div class="phon">LO LÉ DÉ PÉ MI TOK LHÜN GYI DRUP</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">རྩོལ་མེད་ཉམས་མྱོང་རྒྱུན་ཆད་མེད་པར་ཤོག།</div>
+        <div class="eng">May the stream of effortless experience flow without ceasing.</div>
+      </div>
+      <div class="phon">TSÖL MÉ NYAM NYONG GYÜN CHÉ MÉ PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བཟང་ཞེན་ཉམས་ཀྱི་འཛིན་པ་རང་སར་གྲོལ།</div>
+        <div class="eng">Clinging to good experiences is freed on its own.</div>
+      </div>
+      <div class="phon">ZANG SHEN NYAM KYI DZIN PA RANG SAR DRÖL</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ངན་རྟོག་འཁྲུལ་པ་རང་བཞིན་དབྱིངས་སུ་དག།</div>
+        <div class="eng">The confusion of negative thoughts is naturally purified into basic space.</div>
+      </div>
+      <div class="phon">NGEN TOK TRÜL PA RANG SHIN YING SU DAK</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཐ་མལ་ཤེས་པ་སྤང་བླང་བྲལ་ཐོབ་མེད།</div>
+        <div class="eng">Ordinary mind is beyond being accepted or rejected; it cannot be lost or gained.</div>
+      </div>
+      <div class="phon">TA MEL SHÉ PA PANG LANG DREL TOP MÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">རྟོག་བྲལ་ཆོས་ཉིད་བདེན་པ་རྟོགས་པར་ཤོག།</div>
+        <div class="eng">May we realize this freedom from concepts, the truth of reality itself.</div>
+      </div>
+      <div class="phon">DRÖ DREL CHÖ NYI DEN PA TOK PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-note">Compassion and the Supreme Path</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">འགྲོ་བའི་རང་བཞིན་རྟག་ཏུ་སངས་རྒྱས་ཀྱང་།</div>
+        <div class="eng">Beings have always been buddhas by their very nature.</div>
+      </div>
+      <div class="phon">DRO WÉ RANG SHIN TAK TU SANG GYÉ KYANG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">མ་རྟོགས་དབང་གིས་མཐའ་མེད་འཁོར་བར་འཁྱམས།</div>
+        <div class="eng">Yet not knowing this they wander endlessly in saṃsāra.</div>
+      </div>
+      <div class="phon">MA TOK WANG GI TA MÉ KHOR WAR KHYAM</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྡུག་བསྔལ་མུ་མཐའ་མེད་པའི་སེམས་ཅན་ལ།</div>
+        <div class="eng">For those beings who experience suffering without end,</div>
+      </div>
+      <div class="phon">DUG NGAL MU TA MÉ PÉ SEM CHEN LA</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བཟོད་མེད་སྙིང་རྗེ་རྒྱུད་ལ་སྐྱེ་བར་ཤོག།</div>
+        <div class="eng">May overwhelming compassion take birth in our minds.</div>
+      </div>
+      <div class="phon">ZÖ MÉ NYING JÉ GYÜ LA KYÉ WAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བཟོད་མེད་སྙིང་རྗེའི་རྩལ་ཡང་མ་འགགས་པའི།</div>
+        <div class="eng">In the moment of love, with the unceasing force of unbearable compassion,</div>
+      </div>
+      <div class="phon">ZÖ MÉ NYING JÉ TSEL YANG MA GAK PÉ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བརྩེ་དུས་ངོ་བོ་སྟོང་དོན་རྗེན་པར་འཆར།</div>
+        <div class="eng">The truth of the empty essence nakedly dawns.</div>
+      </div>
+      <div class="phon">TSÉ DÜ NGO WO TONG DÖN JEN PAR SHAR</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཟུང་འཇུག་འཁྲུལ་ས་བྲལ་བའི་ལམ་མཆོག་འདི།</div>
+        <div class="eng">This unity is the unerring supreme path.</div>
+      </div>
+      <div class="phon">SUNG JUK GÖL SA DREL WÉ LAM CHOK DI</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">བྲལ་མེད་ཉིན་མཚན་ཀུན་ཏུ་སྒོམ་པར་ཤོག།</div>
+        <div class="eng">May we never be separate from it, meditating day and night.</div>
+      </div>
+      <div class="phon">DREL MÉ NYIN TSEN KÜN TU GOM PAR SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-note">Dedication and Closing</div>
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྒོམ་ཐོབ་ལས་བྱུང་མཐན་དང་མངོན་ཤེས་དང་།</div>
+        <div class="eng">With the vision and direct perception born of meditation,</div>
+      </div>
+      <div class="phon">GOM TOP LÉ JUNG JEN DANG NGÖN SHÉ DANG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སེམས་ཅན་སྨིན་བྱེད་སངས་རྒྱས་ཞིང་རབ་སྦྱང་།</div>
+        <div class="eng">Maturing sentient beings and establishing buddha fields,</div>
+      </div>
+      <div class="phon">SEM CHEN MIN CHÉ SANG GYÉ SHING RAP JANG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སངས་རྒྱས་ཆོས་རྣམས་འགྲུབ་པའི་སྨོན་ལམ་རྫོགས།</div>
+        <div class="eng">And fulfilling the aspirations that bring the qualities of the buddhas,</div>
+      </div>
+      <div class="phon">SANG GYÉ CHÖ NAM DRUP PÉ MÖN LAM DZOK</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">རྫོགས་སྨིན་སྦྱང་གསུམ་མཐར་ཕྱིན་སངས་རྒྱས་ཤོག།</div>
+        <div class="eng">May we attain buddhahood, where fulfilling, maturing, and establishing are complete.</div>
+      </div>
+      <div class="phon">DZOK MIN JANG SUM TAR CHIN SANG GYÉ SHOK</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stanza">
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">ཕྱོགས་བཅུའི་རྒྱལ་བ་སྲས་བཅས་ཐུགས་རྗེ་དང་།</div>
+        <div class="eng">Through the power of the buddhas in the ten directions and their heirs,</div>
+      </div>
+      <div class="phon">CHOK CHÜ GYEL WA SÉ CHÉ TUK JÉ DANG</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">རྣམ་དཀར་དགེ་བ་ཇི་སྙེད་ཡོད་པའི་མཐུས།</div>
+        <div class="eng">And whatever wholesome virtue we may possess,</div>
+      </div>
+      <div class="phon">NAM KAR GÉ WA JI NYÉ YÖ PÉ TÜ</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">དེ་ལྟར་བདག་དང་སེམས་ཅན་ཐམས་ཅད་ཀྱི།</div>
+        <div class="eng">May my own pure aspirations</div>
+      </div>
+      <div class="phon">DÉ TAR DAK DANG SEM CHEN TAM CHÉ KYI</div>
+    </div>
+    <div class="line-block">
+      <div class="line">
+        <div class="tib">སྨོན་ལམ་རྣམ་དག་ཇི་བཞིན་འགྲུབ་གྱུར་ཅིག།</div>
+        <div class="eng">And those of all beings be fulfilled.</div>
+      </div>
+      <div class="phon">MÖN LAM NAM DAK JI SHIN DRUP GYUR CHIK</div>
+    </div>
+  </div>
+
+  <div class="colophon">༔</div>
+
+</div>
+
+<script>
+  var phonVisible = true;
+
+  function togglePhonetics() {
+    phonVisible = !phonVisible;
+    var phons = document.querySelectorAll('.phon');
+    var btn = document.getElementById('toggleBtn');
+    var label = document.getElementById('toggleLabel');
+    phons.forEach(function(p) {
+      if (phonVisible) {
+        p.classList.remove('hidden');
+      } else {
+        p.classList.add('hidden');
+      }
+    });
+    btn.textContent = phonVisible ? 'Hide Phonetics' : 'Show Phonetics';
+    label.textContent = phonVisible
+      ? 'Phonetics are currently visible'
+      : 'Phonetics are hidden — test yourself!';
+  }
+</script>
+</body>
+</html>
